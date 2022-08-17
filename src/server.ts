@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import {
+ import {
   addDummyDbItems,
   addDbItem,
   getAllDbItems,
@@ -14,6 +14,7 @@ import filePath from "./filePath";
 // loading in some dummy items into the database
 // (comment out if desired, or change the number)
 addDummyDbItems(20);
+
 
 const app = express();
 
@@ -30,8 +31,10 @@ const PORT_NUMBER = process.env.PORT ?? 4000;
 
 // API info page
 app.get("/", (req, res) => {
-  const pathToFile = filePath("../public/index.html");
-  res.sendFile(pathToFile);
+  res.json({
+    message: 
+    "This is your To-Do List. Get ready to add some tasks for today"
+  })
 });
 
 // GET /items
