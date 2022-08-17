@@ -1,5 +1,7 @@
 export interface DbItem {
   // sketch out interface here
+  task: string,
+  completed: boolean,
 }
 
 export interface DbItemWithId extends DbItem {
@@ -21,6 +23,8 @@ export const addDummyDbItems = (n: number): DbItemWithId[] => {
   const createdSignatures: DbItemWithId[] = [];
   for (let count = 0; count < n; count++) {
     const createdSignature = addDbItem({
+      "task": `this is only the to do number ${count + 1}`,
+      "completed": false
       // possibly add some generated data here
     });
     createdSignatures.push(createdSignature);
